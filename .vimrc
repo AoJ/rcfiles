@@ -48,6 +48,7 @@ nmap <Leader>] :bn<CR>
 nmap <Leader>s :vsplit<CR>
 
 " Bind <C-B> to toggle auto-textwrap
+setl sr
 im <C-B> <C-O>:setl sr! fo<C-R>=strpart("-+",&sr,1)<CR>=tc<CR>
 
 " Omnicompletion
