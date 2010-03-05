@@ -7,6 +7,7 @@ set iskeyword+=_,$,@,%,#
 set mouse=a
 set showmatch
 set nohlsearch
+set tw=72
 
 "Find stuff
 set ignorecase
@@ -46,6 +47,9 @@ nmap <Leader>[ :bp<CR>
 nmap <Leader>] :bn<CR>
 nmap <Leader>s :vsplit<CR>
 
+" Bind <C-B> to toggle auto-textwrap
+im <C-B> <C-O>:setl sr! fo<C-R>=strpart("-+",&sr,1)<CR>=tc<CR>
+
 " Omnicompletion
 " Map it to <Ctrl> + Space:
 inoremap <C-Space> <C-x><C-o>
@@ -58,6 +62,10 @@ inoremap <C-Space> <C-x><C-o>
 	imap <S-Tab> <C-D>
 
 set whichwrap=h,l,~,[,]
+
+"Statusline
+set laststatus=2
+set statusline=%9*%F%m%r%h%w%{!&sr?'[WRAP]':''}%=%(%c%V\ %l/%L\ %P%)
 
 "Bind tab to moving the cursor to the next parenthesis (or after in insert
 "mode)
@@ -127,12 +135,6 @@ set whichwrap=h,l,~,[,]
 		au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 		au BufRead,BufNewFile *.c,*.h set noexpandtab
 		
-		" Turn off settings in 'formatoptions' relating to comment formatting.
-		" - c : do not automatically insert the comment leader when wrapping based on
-		"    'textwidth'
-		" - o : do not insert the comment leader when using 'o' or 'O' from command mode
-		" - r : do not insert the comment leader when hitting <Enter> in insert mode
-		" C: prevents insertion of '*' at the beginning of every line in a comment
 		au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
 		
 		autocmd FileType c nmap <F5> :w<CR>:!gcc -Wall -g % -o %:r && ./%:r<CR>
@@ -141,9 +143,9 @@ set whichwrap=h,l,~,[,]
         autocmd FileType c nmap <F8> :w<CR>:!gcc -Wall -g % -o %:r && gdb %:r<SPACE>
     augroup END
 
-    " C++
-    augroup lang_cpp
-        au!
+  " C++
+  augroup lang_cpp
+    au!
 
 		au BufRead *.cpp,*.hpp set shiftwidth=4
 		au BufRead,BufNewFile *.cpp,*.hpp set tabstop=4
@@ -152,15 +154,15 @@ set whichwrap=h,l,~,[,]
 		au BufRead,BufNewFile *.cpp,*.hpp set formatoptions-=c formatoptions-=o formatoptions-=r
 		
 		autocmd FileType cpp nmap <F5> :w<CR>:make<CR>
-        autocmd FileType cpp nmap <F6> :w<CR>:!g++ -Wall -g % -o %:r && ./%:r<SPACE>
-        autocmd FileType cpp nmap <F7> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<CR>
-        autocmd FileType cpp nmap <F8> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<SPACE>
-    augroup END
+    autocmd FileType cpp nmap <F6> :w<CR>:!g++ -Wall -g % -o %:r && ./%:r<SPACE>
+    autocmd FileType cpp nmap <F7> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<CR>
+    autocmd FileType cpp nmap <F8> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<SPACE>
+  augroup END
 
 	" Python
 	augroup lang_python
 		au!
-        autocmd FileType python nmap <F5> :w<CR>:!python %<CR>
+    autocmd FileType python nmap <F5> :w<CR>:!python %<CR>
 		autocmd FileType python nmap <F6> :w<CR>:!python %<SPACE>
 		autocmd FileType python nmap <F7> :w<CR>:!pdb %<CR>
 		autocmd FileType python nmap <F8> :w<CR>:!pdb %<SPACE>
@@ -171,9 +173,6 @@ set whichwrap=h,l,~,[,]
 
 		set encoding=utf-8
 		let python_highlight_all=1
-
-		" OmniComplete
-		autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 	augroup END 
 
@@ -187,4 +186,12 @@ set whichwrap=h,l,~,[,]
 
 		set encoding=utf-8
 
-	augroup END 
+	augroup END
+
+  " MD, TXT
+  augroup lang_text
+    au!
+
+    au BufRead,BufNewFile *.{txt,md} set tw=72
+    au BufRead,BufNewFile *.{txt,md} set fo=cqt
+  augroup END
