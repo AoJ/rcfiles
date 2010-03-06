@@ -48,13 +48,8 @@ nmap <Leader>] :bn<CR>
 nmap <Leader>s :vsplit<CR>
 
 " Bind <C-B> to toggle auto-textwrap
-setl sr
+set sr
 im <C-B> <C-O>:setl sr! fo<C-R>=strpart("-+",&sr,1)<CR>=tc<CR>
-
-" Omnicompletion
-" Map it to <Ctrl> + Space:
-inoremap <C-Space> <C-x><C-o>
-
 
 "Make ctrl backspace delete previous word
 	imap <C-BS> <C-w>
@@ -66,7 +61,7 @@ set whichwrap=h,l,~,[,]
 
 "Statusline
 set laststatus=2
-set statusline=%9*%F%m%r%h%w%{!&sr?'[WRAP]':''}%=%(%c%V\ %l/%L\ %P%)
+set statusline=%9*%F%m%r%h%w%{&sr?'':'[WRAP]'}%=%(%c%V\ %l/%L\ %P%)
 
 "Bind tab to moving the cursor to the next parenthesis (or after in insert
 "mode)
