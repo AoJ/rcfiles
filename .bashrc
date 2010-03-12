@@ -89,3 +89,9 @@ alias scannetwork='nmap -sP 192.168.2.0/24'
 # Welcome Screen 
 #####################################
 date
+
+export RCFILES_UPDATED=$(git ls-remote ~/dev/rcfiles | cut -f 1 | uniq -c | awk '{print $1==4}')
+
+if [[ $RCFILES_UPDATED == 0 ]]
+  then echo -e "\nRCFILES repo is not up-to date."
+fi
