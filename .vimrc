@@ -7,7 +7,7 @@ set iskeyword+=_,$,@,%,#
 set mouse=a
 set showmatch
 set nohlsearch
-set tw=72
+set tw=72 fo-=tc
 
 "Find stuff
 set ignorecase

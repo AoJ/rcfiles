@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/carl/Dropbox/carlsverre.com/carlsverre_2010'
-let g:netrw_dirhist_2='/home/carl/Dropbox/carlsverre.com/carlsverre_2010/_posts'
-let g:netrw_dirhist_3='/home/carl/dev/thelab.carlsverre.com/_posts'
-let g:netrw_dirhist_4='/home/carl/dev/todd/lib/todd'
-let g:netrw_dirhist_5='/home/carl/dev/todd/lib'
-let g:netrw_dirhist_6='/home/carl/dev/todd/lib/todd'
-let g:netrw_dirhist_7='/home/carl/dev/todd/lib'
-let g:netrw_dirhist_8='/home/carl/dev/todd/logs'
+let g:netrw_dirhist_cnt =0
