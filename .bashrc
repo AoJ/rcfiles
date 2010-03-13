@@ -2,9 +2,6 @@
 # Setup 
 #####################################
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 PATH="/var/lib/gems/1.8/bin:$PATH"
 
 export RUBYOPT=rubygems
@@ -94,4 +91,8 @@ export RCFILES_UPDATED=$(git ls-remote ~/dev/rcfiles | cut -f 1 | uniq -c | awk 
 
 if [[ $RCFILES_UPDATED == 0 ]]
   then echo -e "\nRCFILES repo is not up-to date."
+fi
+
+if [[ -s /home/carl/.rvm/scripts/rvm ]] ; then
+  source /home/carl/.rvm/scripts/rvm ;
 fi
