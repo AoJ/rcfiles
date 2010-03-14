@@ -1,3 +1,5 @@
+set nocompatible
+
 colorscheme wombat256
 syntax on
 set nowrap
