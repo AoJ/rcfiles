@@ -1,9 +1,0 @@
-[user]
-  name = Carl Sverre
-  email = carl@carlsverre.com
-
-[core]
-  editor = vim
-
-[merge]
-  tool = vimdiff

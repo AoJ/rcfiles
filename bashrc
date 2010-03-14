@@ -3,15 +3,17 @@
 #####################################
 
 # SETUP RUBYGEMS
-
-PATH="/var/lib/gems/1.8/bin:$PATH"
-
+export GEM_PATH="$HOME/.gem/ruby/1.8"
+export GEM_HOME="$HOME/.gem/ruby/1.8"
 export RUBYOPT=rubygems
+
+export PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
 
 # HISTORY CONTROL
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 

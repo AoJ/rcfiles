@@ -1,0 +1,12 @@
+[user]
+ 	name = <%= ask("Your Name:") %>
+ 	email = <%= ask("Your Email:") %>
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = <%= ENV['HOME'] %>/.gitignore
+	editor = vim
+[merge]
+	tool = vimdiff
