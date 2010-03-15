@@ -1,6 +1,6 @@
 date
 
-export RCFILES_UPDATED=$(git ls-remote ~/dev/rcfiles | cut -f 1 | uniq -c | awk '{print $1==4}')
+export RCFILES_UPDATED=$(echo $(cd ~/dev/rcfiles && git ls-remote origin && git ls-remote .) | tr ' ' '\n' | sed 's/[a-zA-Z/]*//' | sed '/^$/d' | uniq | wc -l | awk '{print $1==1}')
 
 if [[ $RCFILES_UPDATED == 0 ]]
   then echo -e "\nRCFILES repo is not up-to date."
