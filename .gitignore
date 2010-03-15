@@ -1,2 +1,3 @@
-*.swp
-.vim/view/*
+vim/view/*
+vim/.netrwhist
+vim/.VimballRecord

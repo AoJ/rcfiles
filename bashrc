@@ -2,17 +2,18 @@
 # Setup 
 #####################################
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
-PATH="/var/lib/gems/1.8/bin:$PATH"
-
+# SETUP RUBYGEMS
+export GEM_PATH="$HOME/.gem/ruby/1.8"
+export GEM_HOME="$HOME/.gem/ruby/1.8"
 export RUBYOPT=rubygems
+
+export PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
 
 # HISTORY CONTROL
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 
@@ -89,3 +90,13 @@ alias scannetwork='nmap -sP 192.168.2.0/24'
 # Welcome Screen 
 #####################################
 date
+
+export RCFILES_UPDATED=$(git ls-remote ~/dev/rcfiles | cut -f 1 | uniq -c | awk '{print $1==4}')
+
+if [[ $RCFILES_UPDATED == 0 ]]
+  then echo -e "\nRCFILES repo is not up-to date."
+fi
+
+if [[ -s /home/carl/.rvm/scripts/rvm ]] ; then
+  source /home/carl/.rvm/scripts/rvm ;
+fi
