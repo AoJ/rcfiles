@@ -54,7 +54,8 @@ def link_file(hf,f)
       end
     end
   else
+    file_path = File.expand_path(f)
     puts "linking #{hf}"
-    system %Q{ln -s "#{f}" "#{hf}"}
+    system %Q{ln -s "#{file_path}" "#{hf}"}
   end
 end
