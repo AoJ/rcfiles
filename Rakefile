@@ -12,7 +12,7 @@ task :install do
   batch_mode = agree("replace all files?")
 
   Dir['*'].each do |file|
-    next if %w[Rakefile].include? file
+    next if %w[Rakefile README.md LICENSE].include? file
 
     if %w[bin].include? file
       home_file = File.join(ENV['HOME'], "#{file}")
