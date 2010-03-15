@@ -1,0 +1,66 @@
+# SETUP RUBYGEMS
+if [ -d ~/.gem/ruby/1.8 ]; then
+  export GEM_PATH="$HOME/.gem/ruby/1.8"
+  export GEM_HOME="$HOME/.gem/ruby/1.8"
+fi
+export RUBYOPT=rubygems
+
+
+# HISTORY CONTROL
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Include dot (.) files in the results of expansion
+shopt -s dotglob
+# Case-insensitive matching for filename expansion
+shopt -s nocaseglob
+# Enable extended pattern matching
+shopt -s extglob
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# Define some colors first:
+red='\[\e[0;31m\]'
+RED='\[\e[1;31m\]'
+green='\[\e[0;32m\]'
+GREEN='\[\e[1;32m\]'
+grey='\[\e[0;37m\]'
+NC='\[\e[0m\]'              # No Color
+BOLD='\[\e[1m\]'
+
+#####################################
+# Prompt
+#####################################
+
+PS1="${BOLD}\$(mypwd) ${green}\$ ${NC}"  # simple prompt
+
+export PS1="\[\e]0;\u@\h: \w\a\]$PS1" # simple title
+
+
+
+#####################################
+# runs right before welcome scn
+#####################################
+
+if [[ -s /home/carl/.rvm/scripts/rvm ]] ; then
+  source /home/carl/.rvm/scripts/rvm ;
+fi
