@@ -178,6 +178,12 @@ nmap	<C-TAB>		/)<CR>
 		let python_highlight_all=1
 	augroup END 
 
+  augroup lang_ruby
+    au!
+    autocmd FileType ruby nmap <F5> :w<CR>:!ruby %<CR>
+    autocmd FileType ruby nmap <F6> :w<CR>:!ruby %<SPACE>
+  augroup END
+
 	" SQL
 	augroup lang_sql
 		au!
