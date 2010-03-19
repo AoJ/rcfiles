@@ -172,7 +172,8 @@ nmap	<C-TAB>		/)<CR>
 
 		au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
 		au BufRead,BufNewFile *py,*pyw set tabstop=4
-		au BufRead,BufNewFile *.py,*.pyw set noexpandtab
+		au BufRead,BufNewFile *py,*pyw set softtabstop=4
+		au BufRead,BufNewFile *.py,*.pyw set expandtab
 
 		set encoding=utf-8
 		let python_highlight_all=1
