@@ -202,4 +202,5 @@ nmap	<C-TAB>		/)<CR>
 
     au BufRead,BufNewFile *.{txt,md} set tw=72
     au BufRead,BufNewFile *.{txt,md} set fo=cqt
+    au BufRead,BufNewFile *.{txt,md} set sr!
   augroup END
