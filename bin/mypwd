@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-pwd = Dir.pwd
-amt = 4
-
-dirs = pwd.split('/')
-left = (dirs.length-amt > 0) ? dirs.length-amt : 0
-pwd = dirs[left..-1].join("/")
-pwd = (left > 1) ? '../' + pwd : '/'+pwd
-puts pwd.sub('//','/')
