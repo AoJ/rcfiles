@@ -133,7 +133,7 @@ function current_git_branch {
 }
 
 function get_remote_hostname {
-  [[ -n $SSH_CLIENT ]] && echo "$(hostname) : " 
+  [[ -n $SSH_CLIENT ]] && echo "$(hostname) " 
 }
 
 PS1="${yellow}$(get_remote_hostname)${NC}${BOLD}\$(shorter_pwd 50)${green}\$(current_git_branch) \$ ${NC}"  # simple prompt
