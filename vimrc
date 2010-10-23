@@ -130,62 +130,66 @@ nmap	<C-TAB>		/)<CR>
 
 	au BufRead,BufNewFile Makefile* set noexpandtab
 
-  " C
-  augroup lang_c
-    au!
+	" C
+	augroup lang_c
+		au!
 
-    au BufRead *.c,*.h set shiftwidth=4
-    au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
-    au BufRead,BufNewFile *.c,*.h set noexpandtab
-    
-    au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
-    
-    autocmd FileType c nmap <F5> :w<CR>:!gcc -Wall -g % -o %:r && ./%:r<CR>
-    autocmd FileType c nmap <F6> :w<CR>:!gcc -Wall -g % -o %:r && ./%:r<SPACE>
-    autocmd FileType c nmap <F7> :w<CR>:!gcc -Wall -g % -o %:r && gdb %:r<CR>
-    autocmd FileType c nmap <F8> :w<CR>:!gcc -Wall -g % -o %:r && gdb %:r<SPACE>
-  augroup END
+		au BufRead *.c,*.h set shiftwidth=4
+		au BufRead,BufNewFile *.c,*.h set tabstop=4
+		au BufRead,BufNewFile *.c,*.h set softtabstop=4
+		au BufRead,BufNewFile *.c,*.h set noexpandtab
+		
+		au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
+		
+		autocmd FileType c nmap <F5> :w<CR>:!gcc -Wall -g % -o %:r && ./%:r<CR>
+		autocmd FileType c nmap <F6> :w<CR>:!gcc -Wall -g % -o %:r && ./%:r<SPACE>
+		autocmd FileType c nmap <F7> :w<CR>:!gcc -Wall -g % -o %:r && gdb %:r<CR>
+		autocmd FileType c nmap <F8> :w<CR>:!gcc -Wall -g % -o %:r && gdb %:r<SPACE>
+	augroup END
 
-  " C++
-  augroup lang_cpp
-    au!
+	" C++
+	augroup lang_cpp
+		au!
 
 		au BufRead *.cpp,*.hpp set shiftwidth=4
 		au BufRead,BufNewFile *.cpp,*.hpp set tabstop=4
+		au BufRead,BufNewFile *.cpp,*.hpp set softtabstop=4
 		au BufRead,BufNewFile *.cpp,*.hpp set noexpandtab
-		
-		au BufRead,BufNewFile *.cpp,*.hpp set formatoptions-=c formatoptions-=o formatoptions-=r
-		
-		autocmd FileType cpp nmap <F5> :w<CR>:make<CR>
-    autocmd FileType cpp nmap <F6> :w<CR>:!g++ -Wall -g % -o %:r && ./%:r<SPACE>
-    autocmd FileType cpp nmap <F7> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<CR>
-    autocmd FileType cpp nmap <F8> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<SPACE>
-  augroup END
 
-	" Python
+		au BufRead,BufNewFile *.cpp,*.hpp set formatoptions-=c formatoptions-=o formatoptions-=r
+
+		autocmd FileType cpp nmap <F5> :w<CR>:make<CR>
+		autocmd FileType cpp nmap <F6> :w<CR>:!g++ -Wall -g % -o %:r && ./%:r<SPACE>
+		autocmd FileType cpp nmap <F7> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<CR>
+		autocmd FileType cpp nmap <F8> :w<CR>:!g++ -Wall -g % -o %:r && gdb %:r<SPACE>
+	augroup END
+
+		" Python
 	augroup lang_python
 		au!
-    autocmd FileType python nmap <F5> :w<CR>:!python %<CR>
+
+		autocmd FileType python nmap <F5> :w<CR>:!python %<CR>
 		autocmd FileType python nmap <F6> :w<CR>:!python %<SPACE>
 		autocmd FileType python nmap <F7> :w<CR>:!pdb %<CR>
 		autocmd FileType python nmap <F8> :w<CR>:!pdb %<SPACE>
 
-		au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-		au BufRead,BufNewFile *py,*pyw set tabstop=4
-		au BufRead,BufNewFile *py,*pyw set softtabstop=4
+		au BufRead,BufNewFile *.py,*.pyw set shiftwidth=4
+		au BufRead,BufNewFile *.py,*.pyw set tabstop=4
+		au BufRead,BufNewFile *.py,*.pyw set softtabstop=4
 		au BufRead,BufNewFile *.py,*.pyw set expandtab
 
 		set encoding=utf-8
 		let python_highlight_all=1
 	augroup END 
 
-  augroup lang_ruby
-    au!
-    autocmd FileType ruby nmap <F5> :w<CR>:!ruby %<CR>
-    autocmd FileType ruby nmap <F6> :w<CR>:!ruby %<SPACE>
-  augroup END
+	augroup lang_ruby
+		au!
 
-	" SQL
+		autocmd FileType ruby nmap <F5> :w<CR>:!ruby %<CR>
+		autocmd FileType ruby nmap <F6> :w<CR>:!ruby %<SPACE>
+	augroup END
+
+		" SQL
 	augroup lang_sql
 		au!
 
@@ -196,11 +200,11 @@ nmap	<C-TAB>		/)<CR>
 		set encoding=utf-8
 	augroup END
 
-  " MD, TXT
-  augroup lang_text
-    au!
+	" MD, TXT
+	augroup lang_text
+		au!
 
-    au BufRead,BufNewFile *.{txt,md} set tw=72
-    au BufRead,BufNewFile *.{txt,md} set fo=cqt
-    au BufRead,BufNewFile *.{txt,md} set sr!
-  augroup END
+		au BufRead,BufNewFile *.{txt,md} set tw=72
+		au BufRead,BufNewFile *.{txt,md} set fo=cqt
+		au BufRead,BufNewFile *.{txt,md} set sr!
+	augroup END
