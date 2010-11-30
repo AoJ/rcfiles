@@ -169,6 +169,7 @@ nmap	<C-TAB>		/)<CR>
 		au!
 
 		autocmd FileType python nmap <F5> :w<CR>:!python %<CR>
+		autocmd FileType python nmap <D-Enter> :w<CR>:!python %<CR>
 		autocmd FileType python nmap <F6> :w<CR>:!python %<SPACE>
 		autocmd FileType python nmap <F7> :w<CR>:!pdb %<CR>
 		autocmd FileType python nmap <F8> :w<CR>:!pdb %<SPACE>
@@ -186,6 +187,7 @@ nmap	<C-TAB>		/)<CR>
 		au!
 
 		autocmd FileType ruby nmap <F5> :w<CR>:!ruby %<CR>
+		autocmd FileType ruby nmap <D-Enter> :w<CR>:!ruby %<CR>
 		autocmd FileType ruby nmap <F6> :w<CR>:!ruby %<SPACE>
 	augroup END
 
