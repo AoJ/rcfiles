@@ -146,6 +146,4 @@ export PS1="\[\e]0;\u@\h: \w\a\]$PS1" # simple title
 # runs right before welcome scn
 #####################################
 
-if [[ -s /home/carl/.rvm/scripts/rvm ]] ; then
-  source /home/carl/.rvm/scripts/rvm ;
-fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
