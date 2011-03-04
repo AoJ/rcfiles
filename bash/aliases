@@ -20,6 +20,3 @@ alias n='pushd +1'
 alias today='google calendar today --cal ".*" title,when --delimiter " @ "'
 
 alias scannetwork='nmap -sP 192.168.2.0/24'
-
-# log into relevantgames server
-alias poseidon='ssh -p6972 carl@poseidon.relevantgames.com'
