@@ -1,6 +1,7 @@
 set nocompatible
 
-colorscheme darkburn
+colorscheme wombat256
+let &t_Co=256
 syntax on
 set nowrap
 set number
