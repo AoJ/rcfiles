@@ -1,6 +1,6 @@
 set nocompatible
 
-colorscheme wombat256
+colorscheme darkburn
 syntax on
 set nowrap
 set number
