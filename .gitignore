@@ -2,3 +2,4 @@ vim/view/*
 vim/.netrwhist
 vim/.VimballRecord
 *.swp
+.DS_Store
