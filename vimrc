@@ -38,6 +38,10 @@ nmap :Q :q
 "Make q quit (if there are no changes)
 nmap q :q<CR>
 
+" FuzzyFinder
+map <leader>f :FufFile **/<C-M>
+map <leader>b :FufBuffer<C-M>
+
 " MiniBufExplorer
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
