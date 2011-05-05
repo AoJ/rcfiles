@@ -3,6 +3,7 @@ if [ -n "$PS1" ]; then
   source ~/.bash/paths
   source ~/.bash/config
   source ~/.bash/functions
+  source ~/.bash/completion
   source ~/.bash/welcome
 
   if [ -f ~/.localrc ]; then
