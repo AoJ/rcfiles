@@ -6,6 +6,7 @@ syntax on
 set nowrap
 set number
 filetype on
+filetype plugin indent on
 set iskeyword+=_,$,@,%,#
 set mouse=a
 set showmatch
@@ -88,7 +89,6 @@ set encoding=utf-8
 
 set smartindent
 set autoindent
-filetype plugin indent on
     
 " Automatic closing brackets
 inoremap {<CR> {<CR>}<ESC>O
