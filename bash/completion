@@ -8,3 +8,7 @@ _complete_git() {
 }
 
 complete -F _complete_git git checkout
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
