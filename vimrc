@@ -43,6 +43,9 @@ nmap q :q<CR>
 map <leader>f :FufFile **/<C-M>
 map <leader>b :FufBuffer<C-M>
 
+" NERDTree
+map <leader>a :NERDTreeFind<C-M>
+
 " MiniBufExplorer
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
