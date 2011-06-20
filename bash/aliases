@@ -10,7 +10,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
 fi
 
-alias terminal='urxvt'
+alias tmux='TERM=xterm-256color tmux'
 
 # lets get around faster!
 alias p='pushd'

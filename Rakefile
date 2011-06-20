@@ -47,11 +47,9 @@ end
 
 def link_file(hf,f)
   if f =~ /.erb$/
-    if agree("regenerate #{f}?")
-      puts "generating #{hf}"
-      File.open(hf, 'w') do |nf|
-        nf.write ERB.new(File.read(f)).result(binding)
-      end
+    puts "generating #{hf}"
+    File.open(hf, 'w') do |nf|
+      nf.write ERB.new(File.read(f)).result(binding)
     end
   else
     file_path = File.expand_path(f)
