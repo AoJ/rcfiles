@@ -122,7 +122,9 @@ shorter_pwd()
 
 ## Get git branch
 function current_git_branch {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/' -e 's/ \[master\]//'
+    branch_name="$(git symbolic-ref HEAD 2>/dev/null)" || branch_name="(unnamed branch)"
+    branch_name=${branch_name##refs/heads/}
+    echo $branch_name | sed -e "s/^/ /" -e "s/ master//"
 }
 
 function get_remote_hostname {
