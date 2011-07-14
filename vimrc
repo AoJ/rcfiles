@@ -22,6 +22,10 @@ set ignorecase
 set smartcase
 set incsearch
 
+"Set swp files to go to a central location
+set backupdir=$HOME/.vim/swp//,/tmp
+set directory=$HOME/.vim/swp//,/tmp
+
 "In vim man pages
 runtime ftplugin/man.vim
 
