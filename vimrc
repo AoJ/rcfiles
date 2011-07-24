@@ -1,8 +1,9 @@
 set nocompatible
 
-colorscheme wombat256
+syntax enable
+set background=dark
+colorscheme solarized
 let &t_Co=256
-syntax on
 set nowrap
 set number
 filetype on
