@@ -14,4 +14,3 @@ fi
 if [ -f ~/.localrc_end ]; then
   . ~/.localrc_end
 fi
-
