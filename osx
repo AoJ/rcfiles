@@ -1,0 +1,24 @@
+# Expand save panel by default
+defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
+
+# Expand print panel by default
+defaults write -g PMPrintingExpandedStateForPrint -bool true
+
+# Enable highlight hover effect for the grid view of a stack (Dock)
+defaults write com.apple.dock mouse-over-hilte-stack -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+
+# Disable Resume for Preview.app
+defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Kill affected applications
+for app in Finder Dock; do killall "$app"; done
+
+# Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
+echo "0x08000100:0" > ~/.CFUserTextEncoding
