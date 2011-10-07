@@ -3,6 +3,7 @@ require 'pp'
 
 class InvoiceServer < Sinatra::Base
   set :entries, []
+  set :port, 8080
 
   get "/" do
     @rate = settings.rate.to_i
@@ -21,8 +22,6 @@ class Timetrap::Formatters::Invoice
   end
 
   def output
-    "running server on localhost:8080"
-
     current_sheet = @entries[0][:sheet]
     data_sheet = Timetrap::Entry.sheets.find_all { |i| i =~ /^#{current_sheet}.+/ }
    
