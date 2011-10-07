@@ -1,0 +1,29 @@
+#sidebar {
+    width: 180px;
+    float: left;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#sidebar .block {
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+#sidebar .block .title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+table {
+    font-family: monospace;
+    text-align: left;
+}
+
+td {
+    padding: 5px 20px 0 0;
+}
+
+.totals-row {
+    font-weight: bold;
+    font-size: 1.4em;
+}

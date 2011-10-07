@@ -1,0 +1,50 @@
+<div id="sidebar">
+  <h1>INVOICE</h1>
+
+  <div class="block">
+    <b>DATE: </b> <%= DateTime.now.strftime('%b %d, %Y') %><br />
+    <b>RATE: </b> <%= '$%.2f' % @rate %><br />
+  </div>
+
+  <div class="block">
+    <b>Carl Sverre</b><br />
+    1009 Mckenzie Ave, Unit 408<br />
+    Victoria BC, V8X 4B1<br />
+    Canada
+  </div>
+
+  <div class="block">
+    <div class="title">Bill To:</div>
+    <b><%= @bille_name %></b><br />
+    <%= @bille_company %><br />
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Duration</th>
+    <th>Cost</th>
+  </tr>
+
+  <% for entry in @entries %>
+    <tr>
+      <td><%= entry[:note] %></td>
+      <td><%= entry[:start].strftime('%a %b %d, %Y %H:%M:%S') %></td>
+      <td><%= entry[:end].strftime('%a %b %d, %Y %H:%M:%S') %></td>
+      <td><%= Time.at(entry.duration).gmtime.strftime('%R:%S') %></td>
+      <td><%= '$%.2f' % ((entry.duration / 60.0 / 60.0) * @rate) %></td>
+    </tr>
+  <% end %>
+
+
+  <tr class="totals-row">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total:</td>
+    <td><%= '$%.2f' % (@entries.map { |e| e.duration / 60.0 / 60.0 }.reduce(0) { |a,b| a + b } * @rate) %></td>
+  </tr>
+</table>
