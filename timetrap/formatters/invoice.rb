@@ -24,8 +24,8 @@ class Timetrap::Formatters::Invoice
   def output
     current_sheet = @entries[0][:sheet]
     data_sheet = Timetrap::Entry.sheets.find_all { |i| i =~ /^#{current_sheet}.+/ }
-   
-    return "You need to create a data sheet first" unless data_sheet.length
+
+    return "You need to create a data sheet first" unless data_sheet.length == 1
 
     data = data_sheet[0].split(',')
 
