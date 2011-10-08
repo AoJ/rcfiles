@@ -33,7 +33,7 @@
     <tr>
       <td><%= entry[:note] %></td>
       <td><%= entry[:start].strftime('%a %b %d, %Y %H:%M:%S') %></td>
-      <td><%= entry[:end].strftime('%a %b %d, %Y %H:%M:%S') %></td>
+      <td><%= entry.end_or_now.strftime('%a %b %d, %Y %H:%M:%S') %></td>
       <td><%= Time.at(entry.duration).gmtime.strftime('%R:%S') %></td>
       <td><%= '$%.2f' % ((entry.duration / 60.0 / 60.0) * @rate) %></td>
     </tr>
