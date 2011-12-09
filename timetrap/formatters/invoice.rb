@@ -3,7 +3,7 @@ require 'pp'
 
 class InvoiceServer < Sinatra::Base
   set :entries, []
-  set :port, 8080
+  set :port, 3000
 
   get "/" do
     @rate = settings.rate.to_i
