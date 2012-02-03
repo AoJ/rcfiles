@@ -1,133 +1,135 @@
-set nocompatible
+set nocompatible                    " Prevents VIM from being nerfed into acting like VI
+call pathogen#infect()              " Loads Pathogen
+set history=1000                    " 1000 item history
+set undolevels=1000                 " 1000 item undo buffer
+let mapleader=","                   " set leader to ,
+set title                           " update the terminals title
 
-syntax enable
+"------  Visual Options  ------"
+
+syntax enable                       " enable syntax highlighting
+set number                          " enable line numbers
+set nowrap                          " disable word wrap
+set vb                              " visual bell
+set showmatch                       " show matching bracket
+
+set laststatus=2                    " always use a status line
+set statusline=%9*%F%m%r%h%w%{&sr?'':'[WRAP]'}%=%(%c%V\ %l/%L\ %P%)
+
 set background=dark
 colorscheme solarized
-let &t_Co=256
-set nowrap
-set number
-filetype on
-filetype plugin indent on
+
+let &t_Co=256                       " help ensure vim supports 256 colors
+
+"------  Behavior  ------"
+
+set tabstop=4                       " tab = 4 spaces
+set shiftwidth=4                    " indent to 4 spaces
+set softtabstop=4                   " Number of spaces that a <Tab> counts for
+set expandtab                       " use spaces instead of tabs
+set autoindent                      " auto indent
+set smartindent                     " use vim smart indenting
+
+" Ignore these files when completing names
+set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
+
 set iskeyword+=_,$,@,%,#
-set mouse=a
-set showmatch
-set nohlsearch
-set tw=72
-set fo-=c
-set fo-=t
-set modeline
-set modelines=3
 
-"Find stuff
-set ignorecase
-set smartcase
-set incsearch
+set mouse=a                         " Use mouse always
 
-"Set swp files to go to a central location
-set backupdir=$HOME/.vim/swp//,/tmp
-set directory=$HOME/.vim/swp//,/tmp
+filetype on                         " enable filetype plugin loading
+filetype indent on
+filetype plugin on
 
-"In vim man pages
-runtime ftplugin/man.vim
+set encoding=utf-8
 
-"Share clipboard
-set clipboard+=unnamed
-set wildmenu
+"------  Searching  ------"
 
-"Change to directory of current file
-nmap <silent> <Leader>cd :cd %:p:h<CR>
+set incsearch                       " Search while typing
+set ignorecase                      " Case insensitive searching
+set smartcase                       " lowercase = case insensitive, any uppercase = case sensitive
+set hlsearch                        " highlight all search results
 
-"I make the mistake of typing W and Q instead of w and q
-nmap :W :w
-nmap :Q :q
+" following line clears the search highlights when pressing <Leader>s
+nnoremap <Leader>s :nohlsearch<CR>
 
-"Make q quit (if there are no changes)
-nmap q :q<CR>
+"------  NERDTree Options  ------"
 
-" FuzzyFinder
-map <leader>f :FufFile **/<C-M>
-map <leader>b :FufBuffer<C-M>
-
-" NERDTree
+let NERDTreeIgnore=['CVS', '\.git$']
+" following line finds the current file in NERDTree when pressing <Leader>a
 map <leader>a :NERDTreeFind<C-M>
 
-" MiniBufExplorer
+autocmd VimEnter * NERDTree         " Run NERDTree
+
+"------  MiniBufExpl  ------"
+
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplUseSingleClick = 1
 
+"------  Buffers  ------"
+
+set hidden                          " switch between unsaved buffers w/o needing to save
+
+" change buffers using <Leader>{[,]}
+nmap <silent> <Leader>[ :bp<CR>
+nmap <silent> <Leader>] :bn<CR>
+
+"------  Moving Between Windows  ------"
+
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 
-nmap <Leader>[ :bp<CR>
-nmap <Leader>] :bn<CR>
-nmap <Leader>s :vsplit<CR>
+"------  Text Width Stuff  ------"
 
-" Bind <C-B> to toggle auto-textwrap
+set tw=72
+set fo-=c
+set fo-=t
+set modeline
+set modelines=3
 set sr
-im <C-B> <C-O>:setl sr! fo<C-R>=strpart("-+",&sr,1)<CR>=tc<CR>
+set whichwrap=h,l,~,[,]
 
-"Make ctrl backspace delete previous word
-imap <C-BS> <C-w>
+"------  Vim Config Stuff  ------"
+
+"Set swp files to go to a central location
+set backupdir=$HOME/.vim/swp//,/tmp
+set directory=$HOME/.vim/swp//,/tmp
+
+"Share clipboard
+set clipboard+=unnamed
+set wildmenu
+
+"------  Helpful keybindings  ------"
+
+" ,T = Delete all Trailing space in file
+map <Leader>T :%s/\s\+$//<CR>
+
+" ,R = Converts tabs to spaces in document
+map <Leader>R :retab<CR>
 
 "Make shift-tab go back one tab
 imap <S-Tab> <C-D>
-
-set whichwrap=h,l,~,[,]
-
-" Statusline
-set laststatus=2
-set statusline=%9*%F%m%r%h%w%{&sr?'':'[WRAP]'}%=%(%c%V\ %l/%L\ %P%)
-
-" Bind tab to moving the cursor to the next parenthesis (or after in insert
-" mode)
-imap	<C-TAB>		<ESC>/)<CR>a
-nmap	<C-TAB>		/)<CR>
-
-" Default Indentation options
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
-set encoding=utf-8
-
-set smartindent
-set autoindent
     
 " Automatic closing brackets
 inoremap {<CR> {<CR>}<ESC>O
 inoremap /**<CR> /**<CR><CR>/<ESC>kA
-	
-" Views (what vim remember about a file)
+
+"I make the mistake of typing W and Q instead of w and q
+nmap :W :w
+nmap :Q :q
+
+nmap q  :q<CR>
+
+"------  Views  ------"
+
 " Remember cursor position and folds, but NOT options
-" This caused me no end of trouble.
 set viewoptions=cursor,folds
 
 " Automatically save view
 autocmd BufWinLeave * if expand("%") != "" | mkview | endif
 autocmd BufWinEnter * if expand("%") != "" | loadview | endif
-
-augroup unmap_function_keys
-  au!
-  autocmd BufDelete * silent! nunmap <F4>
-  autocmd BufDelete * silent! nunmap <F5>
-  autocmd BufDelete * silent! nunmap <F6>
-  autocmd BufDelete * silent! nunmap <F7>
-  autocmd BufDelete * silent! nunmap <F8>
-  autocmd BufDelete * silent! nunmap <ESC><F4>
-  autocmd BufDelete * silent! nunmap <ESC><F5>
-  autocmd BufDelete * silent! nunmap <ESC><F6>
-  autocmd BufDelete * silent! nunmap <ESC><F7>
-  autocmd BufDelete * silent! nunmap <ESC><F8>
-augroup END
-
-" Set function keys for insert mode
-imap <F4> <ESC><F4>i
-imap <F5> <ESC><F5>i
-imap <F6> <ESC><F6>i
-imap <F7> <ESC><F7>i
-imap <F8> <ESC><F8>i

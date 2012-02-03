@@ -1,7 +1,7 @@
-setlocal shiftwidth=2
-setlocal tabstop=2
+setlocal shiftwidth=4
+setlocal tabstop=4
 setlocal expandtab
-setlocal softtabstop=2
+setlocal softtabstop=4
 
 nmap <buffer> <F5> :w<CR>:!ruby %<CR>
 nmap <buffer> <D-Enter> :w<CR>:!ruby %<CR>
