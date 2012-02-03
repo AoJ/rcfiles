@@ -60,6 +60,10 @@ let NERDTreeIgnore=['CVS', '\.git$']
 map <leader>a :NERDTreeFind<C-M>
 
 autocmd VimEnter * NERDTree         " Run NERDTree
+autocmd VimEnter * wincmd p         " Return to main buffer
+
+" the following autocmd will quit vim if NERDTree is the last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "------  MiniBufExpl  ------"
 
