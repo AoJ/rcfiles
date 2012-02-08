@@ -17,9 +17,9 @@ set laststatus=2                    " always use a status line
 set statusline=%9*%F%m%r%h%w%{&sr?'':'[WRAP]'}%=%(%c%V\ %l/%L\ %P%)
 
 set background=dark
-colorscheme solarized
-
 let &t_Co=256                       " help ensure vim supports 256 colors
+
+colorscheme solarized
 
 "------  Behavior  ------"
 
