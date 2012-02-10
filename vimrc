@@ -78,8 +78,8 @@ let g:miniBufExplUseSingleClick = 1
 set hidden                          " switch between unsaved buffers w/o needing to save
 
 " change buffers using <Leader>{[,]}
-nmap <silent> <Leader>[ :bp<CR>
-nmap <silent> <Leader>] :bn<CR>
+nmap <silent> \[ :bp<CR>
+nmap <silent> \] :bn<CR>
 
 "------  Moving Between Windows  ------"
 
