@@ -69,8 +69,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplUseSingleClick = 1
 
 "------  Buffers  ------"
