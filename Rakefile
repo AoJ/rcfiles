@@ -1,4 +1,3 @@
-require 'highline/import'
 require 'fileutils'
 require 'erb'
 
