@@ -79,6 +79,9 @@ set hidden                          " switch between unsaved buffers w/o needing
 nmap <silent> \[ :bp<CR>
 nmap <silent> \] :bn<CR>
 
+" jump to last/alternate buffer
+noremap <Leader><Leader> <C-^>
+
 "------  Moving Between Windows  ------"
 
 noremap <C-J> <C-W>j
