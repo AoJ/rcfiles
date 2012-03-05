@@ -6,7 +6,7 @@
 	url = https://github.com/juvenn/mustache.vim.git
 [submodule "vim/bundle/snipmate-snippets"]
 	path = vim/bundle/snipmate-snippets
-	url = git@github.com:carlsverre/snipmate-snippets.git
+	url = https://github.com/carlsverre/snipmate-snippets.git
 [submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
