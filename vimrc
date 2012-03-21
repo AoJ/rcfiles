@@ -53,6 +53,12 @@ set hlsearch                        " highlight all search results
 " following line clears the search highlights when pressing <Leader>s
 nnoremap <Leader>s :nohlsearch<CR>
 
+set grepprg=grep\ -nH\ $*           " set grep to always display a file name
+
+"------  Vim-Latex Options ------"
+
+let g:tex_flavor='latex'
+
 "------  NERDTree Options  ------"
 
 let NERDTreeIgnore=['CVS', '\.git$']
