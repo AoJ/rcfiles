@@ -59,12 +59,28 @@ set grepprg=grep\ -nH\ $*           " set grep to always display a file name
 
 let g:tex_flavor='latex'
 
-"------  Vimroom Options ------"
+"------  Vimroom options ------"
 
 let g:vimroom_width=80
 let g:vimroom_min_sidebar_width=3
 let g:vimroom_min_sidebar_height=3
-let g:vimroom_guibackground="bg"
+"let g:vimroom_guibackground="bg"
+
+let s:vimroom_active=0
+function! VimroomWrap()
+    if s:vimroom_active == 1
+        let s:vimroom_active = 0
+        let g:miniBufExplForceSyntaxEnable = 1
+        VimroomToggle
+    else
+        let s:vimroom_active = 1
+        let g:miniBufExplForceSyntaxEnable = 0
+        VimroomToggle
+    endif
+endfunction
+
+nnoremap <silent> <Leader>VV <Plug>VimroomToggle
+nmap <silent> <Leader>V :call VimroomWrap()<CR>
 
 "------  NERDTree Options  ------"
 
@@ -81,7 +97,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "------  MiniBufExpl  ------"
 
 let g:miniBufExplModSelTarget = 1
-let g:miniBufExplForceSyntaxEnable = 1
+let g:miniBufExplForceSyntaxEnable  = 1
 let g:miniBufExplUseSingleClick = 1
 
 "------  Buffers  ------"
