@@ -59,6 +59,13 @@ set grepprg=grep\ -nH\ $*           " set grep to always display a file name
 
 let g:tex_flavor='latex'
 
+"------  Vimroom Options ------"
+
+let g:vimroom_width=80
+let g:vimroom_min_sidebar_width=3
+let g:vimroom_min_sidebar_height=3
+let g:vimroom_guibackground="bg"
+
 "------  NERDTree Options  ------"
 
 let NERDTreeIgnore=['CVS', '\.git$']
