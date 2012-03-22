@@ -63,7 +63,7 @@ let g:tex_flavor='latex'
 
 let g:vimroom_width=80
 let g:vimroom_min_sidebar_width=3
-let g:vimroom_min_sidebar_height=3
+let g:vimroom_sidebar_height=0
 "let g:vimroom_guibackground="bg"
 
 let s:vimroom_active=0
