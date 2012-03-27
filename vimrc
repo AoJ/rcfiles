@@ -59,6 +59,13 @@ set grepprg=grep\ -nH\ $*           " set grep to always display a file name
 
 let g:tex_flavor='latex'
 
+if &filetype != 'tex'
+    imap <M-C-J> <Plug>IMAP_JumpForward
+    nmap <M-C-J> <Plug>IMAP_JumpForward
+    vmap <M-C-J> <Plug>IMAP_JumpForward
+    vmap <M-C-J> <Plug>IMAP_DeleteAndJumpForward
+endif
+
 "------  Vimroom options ------"
 
 let g:vimroom_width=80
@@ -156,8 +163,6 @@ inoremap /**<CR> /**<CR><CR>/<ESC>kA
 "I make the mistake of typing W and Q instead of w and q
 nmap :W :w
 nmap :Q :q
-
-nmap q  :q<CR>
 
 "------  Views  ------"
 
