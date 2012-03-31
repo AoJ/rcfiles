@@ -66,28 +66,36 @@ if &filetype != 'tex'
     vmap <M-C-J> <Plug>IMAP_DeleteAndJumpForward
 endif
 
-"------  Vimroom options ------"
+"------  Writeroom function ------"
 
-let g:vimroom_width=80
-let g:vimroom_min_sidebar_width=3
-let g:vimroom_sidebar_height=0
-"let g:vimroom_guibackground="bg"
-
-let s:vimroom_active=0
-function! VimroomWrap()
-    if s:vimroom_active == 1
-        let s:vimroom_active = 0
-        let g:miniBufExplForceSyntaxEnable = 1
-        VimroomToggle
+let s:writeroom_active=0
+function! Writeroom()
+    if s:writeroom_active == 1
+        let s:writeroom_active = 0
+        set nowrap
+        set nolinebreak
+        set number
     else
-        let s:vimroom_active = 1
-        let g:miniBufExplForceSyntaxEnable = 0
-        VimroomToggle
+        let s:writeroom_active = 1
+        set wrap
+        set linebreak
+        set nonumber
+        NERDTreeClose
+
+        try
+            noremap     <unique> <silent> <Up> g<Up>
+            noremap     <unique> <silent> <Down> g<Down>
+            noremap     <unique> <silent> k gk
+            noremap     <unique> <silent> j gj
+            inoremap    <unique> <silent> <Up> <C-o>g<Up>
+            inoremap    <unique> <silent> <Down> <C-o>g<Down>
+        catch /E227:/
+            echo "Navigational key mappings already exist."
+        endtry
     endif
 endfunction
 
-nnoremap <silent> <Leader>VV <Plug>VimroomToggle
-nmap <silent> <Leader>V :call VimroomWrap()<CR>
+nmap <silent> <Leader>V :call Writeroom()<CR>
 
 "------  NERDTree Options  ------"
 
