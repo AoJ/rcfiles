@@ -12,6 +12,7 @@ if has("gui_macvim")
 
     " for vim-latex in gvim on mac
     " make sure skim is installed
+    let g:Tex_MultipleCompileFormats = 'pdf'
     let g:Tex_DefaultTargetFormat = 'pdf'
     let g:Tex_CompileRule_pspdf = 'ps2pdf $*.ps'
     let g:Tex_CompileRule_dvipdf = 'dvipdfm $*.dvi'
