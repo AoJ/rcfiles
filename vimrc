@@ -75,11 +75,13 @@ function! Writeroom()
         set nowrap
         set nolinebreak
         set number
+        set nospell
     else
         let s:writeroom_active = 1
         set wrap
         set linebreak
         set nonumber
+        set spell
         NERDTreeClose
 
         try
@@ -108,6 +110,14 @@ autocmd VimEnter * wincmd p         " Return to main buffer
 
 " the following autocmd will quit vim if NERDTree is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+"------  Ctrl-p  ------"
+let g:ctrlp_map = '<Leader>t'
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.dll|\.pyc|\.gem|\.DS_Store|\.swp|\.rbc$',
+  \ }
 
 "------  MiniBufExpl  ------"
 
