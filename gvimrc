@@ -5,6 +5,8 @@ set guioptions-=L               " Remove left scrollbar
 set guioptions-=r               " Remove right scrollbar
 set cursorline                  " Highlight background of current line
 
+set guifont=Consolas:h14
+
 if has("gui_macvim")
     set transparency=5
     map <silent> <SwipeLeft> :bprev<CR>
