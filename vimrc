@@ -14,9 +14,10 @@ set vb                              " visual bell
 set showmatch                       " show matching bracket
 
 set laststatus=2                    " always use a status line
-set statusline=%9*%F%m%r%h%w%{&sr?'':'[WRAP]'}%=%(%c%V\ %l/%L\ %P%)
+let g:Powerline_symbols = 'fancy'
 
-colorscheme base16
+set background=dark
+colorscheme solarized
 
 "------  Behavior  ------"
 
