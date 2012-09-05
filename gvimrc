@@ -1,11 +1,10 @@
-set background=dark
-colorscheme solarized
+colorscheme base16
 
 set guioptions-=L               " Remove left scrollbar
 set guioptions-=r               " Remove right scrollbar
 set cursorline                  " Highlight background of current line
 
-set guifont=Consolas:h14
+set guifont=Menlo:h13
 
 if has("gui_macvim")
     set transparency=5
