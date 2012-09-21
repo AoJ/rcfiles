@@ -14,5 +14,3 @@ alias tt='t edit -z'
 alias td='t d'
 
 alias gis='git status'
-
-alias vim='vim -p'

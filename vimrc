@@ -114,18 +114,25 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dll|\.pyc|\.gem|\.DS_Store|\.swp|\.rbc$',
   \ }
 
-"------  Tabs  ------"
+"------  Buffers  ------"
 
 " change buffers using <Leader>{[,]}
-nmap <silent> \[ :tabp<CR>
-nmap <silent> \] :tabn<CR>
+nmap <silent> \[ :bp<CR>
+nmap <silent> \] :bn<CR>
 
 " jump to last/alternate buffer
-noremap <Leader><Leader> :tabl<CR>
+noremap <Leader><Leader> :tabl<CR
 
-" if a file is open in a tab, switch to that instead of creating a
-" buffer
-set switchbuf=usetab,newtab
+" switch between unsaved buffers w/o needing to save
+set hidden
+
+"------  MiniBufExpl  ------"
+
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplUseSingleClick = 1
+
+" this disables colors in minibufexpl
+" let g:miniBufExplForceSyntaxEnable  = 1 
 
 "------  Windows  ------"
 
