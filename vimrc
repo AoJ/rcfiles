@@ -103,9 +103,6 @@ let NERDTreeIgnore=['CVS', '\.git$']
 " following line finds the current file in NERDTree when pressing <Leader>a
 map <leader>a :NERDTreeFind<C-M>
 
-autocmd VimEnter * NERDTree         " Run NERDTree
-autocmd VimEnter * wincmd p         " Return to main buffer
-
 " the following autocmd will quit vim if NERDTree is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -117,29 +114,30 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dll|\.pyc|\.gem|\.DS_Store|\.swp|\.rbc$',
   \ }
 
-"------  MiniBufExpl  ------"
-
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplForceSyntaxEnable  = 1
-let g:miniBufExplUseSingleClick = 1
-
-"------  Buffers  ------"
-
-set hidden                          " switch between unsaved buffers w/o needing to save
+"------  Tabs  ------"
 
 " change buffers using <Leader>{[,]}
-nmap <silent> \[ :bp<CR>
-nmap <silent> \] :bn<CR>
+nmap <silent> \[ :tabp<CR>
+nmap <silent> \] :tabn<CR>
 
 " jump to last/alternate buffer
-noremap <Leader><Leader> <C-^>
+noremap <Leader><Leader> :tabl<CR>
 
-"------  Moving Between Windows  ------"
+" if a file is open in a tab, switch to that instead of creating a
+" buffer
+set switchbuf=usetab,newtab
 
+"------  Windows  ------"
+
+" Move easily between windows
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
+
+" Keybindings for splitting windows
+noremap <Leader>v :split<CR>
+noremap <Leader>V :vsplit<CR>
 
 "------  Text Width Stuff  ------"
 
