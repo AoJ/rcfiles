@@ -9,7 +9,7 @@ repo_dir = File.expand_path(File.dirname(__FILE__))
 desc "install all the dotfiles into the user's home directory"
 task :install => [:update_submodules] do
     Dir['*'].each do |file|
-        next if %w[osx Rakefile README.md LICENSE].include? file
+        next if %w[bash bashrc osx Rakefile README.md LICENSE].include? file
 
         # specify any files that shouldn't be dotfiles here (like bin dirs)
         if %w[bin].include? file

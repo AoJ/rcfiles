@@ -4,14 +4,12 @@
 [color]
 	diff = auto
 	status = auto
-	branch = auto
+    branch = auto
+[pager]
+    color = true
 [core]
 	excludesfile = <%= ENV['HOME'] %>/.gitignore
-  editor = /usr/bin/vim
+    editor = vim
+    pager = less -FXRS -x4
 [merge]
-  tool = vimdiff
-[alias]
-    s = status
-    co = checkout
-    c = commit
-    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    defaultToUpstream = true
