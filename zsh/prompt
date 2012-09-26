@@ -1,0 +1,28 @@
+# cache hostname if logged in remotly
+rem_hostname=`[[ -n $SSH_CLIENT ]] && hostname && echo -n " "`
+
+# load colors
+autoload colors
+colors
+bright_cyan='%{[96m%}' # not provided by colors
+
+# load version control support
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}*"
+zstyle ':vcs_info:*' stagedstr "%{$fg[red]%}+"
+zstyle ':vcs_info:*' formats "$bright_cyan%b%u%c"
+zstyle ':vcs_info:*' actionformats "$bright_cyan%b%u%c|%a"
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
+zstyle ':vcs_info:bzr:*' use-simple true
+zstyle ':vcs_info:*' enable git hg bzr svn cvs
+
+# main prompt
+PROMPT= "%F{yellow}${rem_hostname}%f"     # show hostname if remote
+PROMPT+="%B%30<...<%~%<<%%b"              # path, truncated to 30 chars
+PROMPT+="%F{green}$ %f"                   # end of prompt
+
+RPROMPT="%(?..%F{red}%f%b%? )" # exit status
+precmd () { vcs_info }
+RPROMPT+='%F{green}${vcs_info_msg_0_}'
+RPROMPT+="%f%b"

@@ -1,0 +1,21 @@
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+date
+
+if [ -x /usr/bin/keychain ]; then
+    keychain ~/.ssh/id_rsa
+    . ~/.keychain/$HOSTNAME-sh
+fi
+
+async_check_rcfiles() {
+  {
+    sleep 1
+    local origin_sha1=$(cd ~/dev/rcfiles && git ls-remote origin master | sed -n 1p | awk '{print $1'})
+    local local_sha1=$(cd ~/dev/rcfiles && git ls-remote . master | sed -n 1p | awk '{print $1'})
+
+    [ "$origin_sha1" != "$local_sha1" ] && echo -e "\r\rRCFILES repo is not up-to date.\r\r"
+  }&
+}
+
+async_check_rcfiles
+disown

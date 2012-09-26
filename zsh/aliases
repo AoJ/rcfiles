@@ -1,0 +1,22 @@
+# unix
+alias ls='ls --color=auto -hv --group-directories-first'
+alias ll='ls -l'
+alias l.='ls -Ad .*'
+alias la='ls -A'
+alias grep='grep --color -s'
+alias df='df -hx tmpfs'
+alias du='du --max-depth=1'
+alias sr='screen -r'
+
+# git
+alias gil='git log --graph --abbrev-commit --stat -C --decorate --date=local'
+alias gib='git branch -a'
+alias gis='git status'
+alias gid='git diff -C --date=local'
+alias giw='git show -C --date=local --decorate'
+alias gic='git checkout'
+alias gibl='gil master..HEAD'
+
+# timetrap
+alias tt='t edit -z'
+alias td='t d'
