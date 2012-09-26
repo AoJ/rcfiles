@@ -1,5 +1,5 @@
 # unix
-alias ls='ls --color=auto -hv --group-directories-first'
+alias ls='ls -Ghv'
 alias ll='ls -l'
 alias l.='ls -Ad .*'
 alias la='ls -A'
