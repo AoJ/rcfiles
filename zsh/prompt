@@ -10,7 +10,7 @@ zstyle ':vcs_info:bzr:*' use-simple true
 zstyle ':vcs_info:*' enable git hg bzr svn cvs
 
 # cache hostname if logged in remotely
-rem_hostname=`[[ -n $SSH_CLIENT ]] && hostname && echo -n " "`
+rem_hostname=`[[ -n $SSH_CLIENT ]] && hostname | tr -d '\n' && echo -n " "`
 
 precmd () {
     # update version control info
